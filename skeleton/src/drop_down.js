@@ -18,6 +18,7 @@ function dogLinkCreator() {
 
         const li = document.createElement("li");
         li.setAttribute("class", "dog-link");
+        li.id = "blackpink"
         li.appendChild(a);
 
         dogLinks.push(li);
@@ -34,20 +35,22 @@ function attachDogLinks() {
 }
 
 function handleEnter() {
-    const ele = document.getElement("li");
-    ele.class = ("dog-link");
-
+    const dropDown = document.querySelector(".drop-down-dog-list")
+    dropDown.classList.remove("drop-down-dog-list")
+    dropDown.classList.add("o")
 }
 
 function handleLeave() {
-    const ele = document.querySelector(".dog-link");
-    ele.classList.remove("dog-link");
+    const dropDown = document.querySelector(".o")
+    dropDown.classList.add("drop-down-dog-list")
+    dropDown.classList.remove("o")
 }
 
 
+const nav = document.querySelector(".drop-down-dog-nav")
 
-
-// addEventListener("click", handleEnter);
+nav.addEventListener("mouseenter", handleEnter);
+nav.addEventListener("mouseleave", handleLeave);
 
 attachDogLinks();
 module.exports = attachDogLinks;
